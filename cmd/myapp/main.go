@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/jonwraymond/gitops-resource-adjuster/api/v1alpha1"
+	"github.com/jonwraymond/gitops-resource-adjuster"
 	// Other imports
 )
 
