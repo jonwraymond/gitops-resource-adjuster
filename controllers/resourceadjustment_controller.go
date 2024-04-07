@@ -11,7 +11,7 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	jonwraymondv1 "github.com/jonwraymond/resourceadjuster/api/v1"
+	jonwraymondv1 "github.com/jonwraymond/resourceadjuster/api/v1alpha1"
 	"github.com/jonwraymond/resourceadjuster/internal/config"
 	"github.com/jonwraymond/resourceadjuster/internal/gitops"
 	"github.com/jonwraymond/resourceadjuster/internal/vpa"
