@@ -1,1 +1,1 @@
-go mod init github.com/yourusername/resource-adjuster-operator
+go mod init github.com/yourusername/gitops-resource-adjuster

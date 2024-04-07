@@ -1,1 +1,1 @@
-kind load docker-image jonwraymond/resource-adjuster-operator:latest
+kind load docker-image jonwraymond/gitops-resource-adjuster:latest

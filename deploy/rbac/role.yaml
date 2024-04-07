@@ -2,7 +2,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   namespace: operators
-  name: resource-adjuster-operator
+  name: gitops-resource-adjuster
 rules:
 - apiGroups: [""]
   resources: ["pods", "services"]

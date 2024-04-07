@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: resource-adjuster-operator
+  name: gitops-resource-adjuster
   namespace: operators
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: resource-adjuster-operator
+      name: gitops-resource-adjuster
   template:
     metadata:
       labels:
-        name: resource-adjuster-operator
+        name: gitops-resource-adjuster
     spec:
-      serviceAccountName: resource-adjuster-operator
+      serviceAccountName: gitops-resource-adjuster
       containers:
       - name: operator
-        image: jonwraymond/resource-adjuster-operator:latest
+        image: jonwraymond/gitops-resource-adjuster:latest
         ports:
         - containerPort: 8080

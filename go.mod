@@ -1,4 +1,4 @@
-module github.com/jonwraymond/resource-adjuster-operator
+module github.com/jonwraymond/gitops-resource-adjuster
 
 go 1.22
 
