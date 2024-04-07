@@ -9,6 +9,7 @@ import (
 
     "gopkg.in/yaml.v2"
     "github.com/jonwraymond/gitops-resource-adjuster/internal/vpa"
+    "k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 )
 
 type Config struct {
@@ -63,7 +64,7 @@ func main() {
         // Extract the status field from the unstructured VPA object
         status, found, err := unstructured.NestedFieldCopy(vpaRec.UnstructuredContent(), "status")
         if err != nil || !found {
-            fmt.Printf("Failed to get status from VPA '%s' in namespace '%s'\n", source.Details.VPAName, source.Details.Namespace)
+            fmt.Printf("Failed to get status from VPA '%s' in namespace '%s': %v\n", source.Details.VPAName, source.Details.Namespace, err)
             continue
         }
         // Use the status information as needed
