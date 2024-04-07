@@ -41,6 +41,7 @@ type TargetDetails struct {
 
 func main() {
     configPath := flag.String("configfile", "", "path to the configuration file (JSON or YAML)")
+    kubeconfig := flag.String("kubeconfig", "", "absolute path to the kubeconfig file")
     flag.Parse()
 
     if *configPath == "" {
@@ -53,9 +54,11 @@ func main() {
         panic(err)
     }
 
+
     // Loop through each source in the config and fetch VPA recommendations
     for _, source := range config.Sources {
-        vpaRec, err := vpa.FetchRecommendations(source.Details.VPAName, source.Details.Namespace)
+        // Pass the kubeconfig path to FetchRecommendations
+        vpaRec, err := vpa.FetchRecommendations(source.Details.VPAName, source.Details.Namespace, *kubeconfig)
         if err != nil {
             fmt.Printf("Error fetching VPA recommendations for '%s' in namespace '%s': %v\n", source.Details.VPAName, source.Details.Namespace, err)
             continue

@@ -8,8 +8,6 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"github.com/jonwraymond/gitops-resource-adjuster/internal/config"
-	"github.com/jonwraymond/gitops-resource-adjuster/internal/gitops"
 )
 
 // ResourceAdjustmentReconciler reconciles a ResourceAdjustment object

@@ -4,7 +4,6 @@ import (
 	"io/ioutil"
 	"path/filepath"
 
-	v1alpha1 "github.com/jonwraymond/gitops-resource-adjuster/api/v1alpha1" // Example path
 	"gopkg.in/yaml.v2"
 )
 
