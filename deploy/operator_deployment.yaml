@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resource-adjuster-operator
+  namespace: operators
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: resource-adjuster-operator
+  template:
+    metadata:
+      labels:
+        name: resource-adjuster-operator
+    spec:
+      serviceAccountName: resource-adjuster-operator
+      containers:
+      - name: operator
+        image: mycompany/resource-adjuster-operator:latest
+        ports:
+        - containerPort: 8080

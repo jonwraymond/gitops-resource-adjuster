@@ -1,0 +1,1 @@
+kubectl apply -f deploy/crds/resourceadjustment_crd.yaml

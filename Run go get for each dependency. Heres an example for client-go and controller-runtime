@@ -1,0 +1,2 @@
+go get k8s.io/client-go@latest
+go get sigs.k8s.io/controller-runtime@latest

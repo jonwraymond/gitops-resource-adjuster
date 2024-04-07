@@ -1,0 +1,1 @@
+kind load docker-image mycompany/resource-adjuster-operator:latest

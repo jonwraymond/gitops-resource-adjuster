@@ -1,0 +1,16 @@
+// internal/vpa/vpa_test.go:
+package vpa
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
+
+func TestFetchVPARecommendations(t *testing.T) {
+	// Mock the Kubernetes client and VPA response
+	// Test the FetchVPARecommendations function
+	// Assert that the fetched recommendations match the expected values
+	assert.Equal(t, expectedCPU, fetchedCPU)
+	assert.Equal(t, expectedMemory, fetchedMemory)
+}
