@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"os"
 	"time"
 
 	"github.com/jonwraymond/resource-adjuster-operator/internal/controllers"
