@@ -1,7 +1,6 @@
 package main
 
 import (
-    "context"
     "encoding/json"
     "flag"
     "fmt"
@@ -9,7 +8,6 @@ import (
     "path/filepath"
 
     "gopkg.in/yaml.v2"
-    metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
     "github.com/jonwraymond/gitops-resource-adjuster/internal/vpa"
 )
 
@@ -62,17 +60,15 @@ func main() {
             continue
         }
 
-        // Assuming the VPA status or recommendations are to be printed directly
-        // Adjust this part based on how you want to use the fetched recommendations
-        fmt.Printf("Fetched VPA recommendations for '%s' in namespace '%s': %+v\n", source.Details.VPAName, source.Details.Namespace, vpaRec.Status.Recommendation)
+        // Extract the status field from the unstructured VPA object
+        status, found, err := unstructured.NestedFieldCopy(vpaRec.UnstructuredContent(), "status")
+        if err != nil || !found {
+            fmt.Printf("Failed to get status from VPA '%s' in namespace '%s'\n", source.Details.VPAName, source.Details.Namespace)
+            continue
+        }
+        // Use the status information as needed
+        fmt.Printf("Fetched VPA status for '%s' in namespace '%s': %+v\n", source.Details.VPAName, source.Details.Namespace, status)
     }
-}
-
-func setupKubeConfig() *string {
-    if home := homedir.HomeDir(); home != "" {
-        return flag.String("kubeconfig", filepath.Join(home, ".kube", "config"), "(optional) absolute path to the kubeconfig file")
-    }
-    return flag.String("kubeconfig", "", "absolute path to the kubeconfig file")
 }
 
 func parseConfig(configPath string) (Config, error) {
@@ -91,12 +87,4 @@ func parseConfig(configPath string) (Config, error) {
         err = fmt.Errorf("unsupported config file format")
     }
     return config, err
-}
-
-func setupDynamicClient(kubeconfig string) (dynamic.Interface, error) {
-    config, err := clientcmd.BuildConfigFromFlags("", kubeconfig)
-    if err != nil {
-        return nil, err
-    }
-    return dynamic.NewForConfig(config)
 }
