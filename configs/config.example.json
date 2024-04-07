@@ -1,3 +1,38 @@
 {
-  "setting": "value"
+  "sources": [
+      {
+          "key": "main",
+          "details": {
+              "vpaName": "goldilocks-tautulli",
+              "namespace": "plex",
+              "containers": ["main"],
+              "qos": "burstable",
+              "ignoreFields": ["limits"]
+          }
+      },
+      {
+          "key": "jbops",
+          "details": {
+              "vpaName": "goldilocks-tautulli",
+              "namespace": "plex",
+              "containers": ["jbops"],
+              "qos": "burstable",
+              "ignoreFields": ["limits.cpu", "limits.memory"]
+          }
+      }
+  ],
+  "targets": [
+      {
+          "key": "main",
+          "details": {
+              "managedYamlPath": "spec.values.controllers.main.containers.main.resources"
+          }
+      },
+      {
+          "key": "jbops",
+          "details": {
+              "managedYamlPath": "spec.values.controllers.main.containers.jbops.resources"
+          }
+      }
+  ]
 }
