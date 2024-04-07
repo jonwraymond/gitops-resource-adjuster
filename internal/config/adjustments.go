@@ -4,10 +4,12 @@ import (
 	"io/ioutil"
 	"path/filepath"
 
+	v1alpha1 "github.com/jonwraymond/gitops-resource-adjuster/api/v1alpha1" // Example path
 	"gopkg.in/yaml.v2"
 )
 
-func ApplyVPARecommendationsToYAML(repoDir string, adjustment v1.ResourceAdjustment) error {
+
+func ApplyVPARecommendationsToYAML(repoDir string, adjustment v1alpha1.ResourceAdjustment) error {
 	for _, path := range adjustment.Spec.Paths {
 		fullPath := filepath.Join(repoDir, path)
 		data, err := ioutil.ReadFile(fullPath)
