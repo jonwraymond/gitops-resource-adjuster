@@ -16,6 +16,6 @@ spec:
       serviceAccountName: resource-adjuster-operator
       containers:
       - name: operator
-        image: mycompany/resource-adjuster-operator:latest
+        image: jonwraymond/resource-adjuster-operator:latest
         ports:
         - containerPort: 8080

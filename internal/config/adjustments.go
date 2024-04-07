@@ -5,7 +5,6 @@ import (
 	"path/filepath"
 
 	"gopkg.in/yaml.v2"
-	"github.com/mycompany/resourceadjuster/api/v1"
 )
 
 func ApplyVPARecommendationsToYAML(repoDir string, adjustment v1.ResourceAdjustment) error {

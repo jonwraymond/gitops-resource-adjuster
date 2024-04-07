@@ -10,6 +10,6 @@ rules:
 - apiGroups: ["apps"]
   resources: ["deployments", "replicasets"]
   verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
-- apiGroups: ["mycompany.com"]
+- apiGroups: ["jonwraymond.com"]
   resources: ["resourceadjustments"]
   verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]

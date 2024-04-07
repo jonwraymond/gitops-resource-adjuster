@@ -1,1 +1,1 @@
-docker build -t mycompany/resource-adjuster-operator:latest .
+docker build -t jonwraymond/resource-adjuster-operator:latest .

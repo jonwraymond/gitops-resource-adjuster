@@ -11,10 +11,10 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	mycompanyv1 "github.com/mycompany/resourceadjuster/api/v1"
-	"github.com/mycompany/resourceadjuster/internal/config"
-	"github.com/mycompany/resourceadjuster/internal/gitops"
-	"github.com/mycompany/resourceadjuster/internal/vpa"
+	jonwraymondv1 "github.com/jonwraymond/resourceadjuster/api/v1"
+	"github.com/jonwraymond/resourceadjuster/internal/config"
+	"github.com/jonwraymond/resourceadjuster/internal/gitops"
+	"github.com/jonwraymond/resourceadjuster/internal/vpa"
 )
 
 // ResourceAdjustmentReconciler reconciles a ResourceAdjustment object
@@ -28,7 +28,7 @@ func (r *ResourceAdjustmentReconciler) Reconcile(ctx context.Context, req ctrl.R
 	log := r.Log.WithValues("resourceadjustment", req.NamespacedName)
 
 	// Fetch the ResourceAdjustment instance
-	var adjustment mycompanyv1.ResourceAdjustment
+	var adjustment jonwraymondv1.ResourceAdjustment
 	if err := r.Get(ctx, req.NamespacedName, &adjustment); err != nil {
 		log.Error(err, "unable to fetch ResourceAdjustment")
 		return ctrl.Result{}, client.IgnoreNotFound(err)
@@ -74,6 +74,6 @@ func (r *ResourceAdjustmentReconciler) Reconcile(ctx context.Context, req ctrl.R
 
 func (r *ResourceAdjustmentReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&mycompanyv1.ResourceAdjustment{}).
+		For(&jonwraymondv1.ResourceAdjustment{}).
 		Complete(r)
 }
