@@ -6,8 +6,10 @@ import (
 	"os"
 	"time"
 
-	// Import necessary packages
+	"github.com/jonwraymond/resource-adjuster-operator/internal/controllers"
+	// Other imports
 )
+
 
 var reconcileInterval time.Duration
 
