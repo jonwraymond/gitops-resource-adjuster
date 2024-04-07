@@ -2,17 +2,15 @@ package controllers
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/go-logr/logr"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	jonwraymondv1 "github.com/jonwraymond/resourceadjuster/api/v1alpha1"
-	"github.com/jonwraymond/resourceadjuster/internal/config"
-	"github.com/jonwraymond/resourceadjuster/internal/gitops"
-	"github.com/jonwraymond/resourceadjuster/internal/vpa"
+	jonwraymondv1 "github.com/jonwraymond/gitops-resource-adjuster/api/v1alpha1"
+	"github.com/jonwraymond/gitops-resource-adjuster/internal/config"
+	"github.com/jonwraymond/gitops-resource-adjuster/internal/gitops"
 )
 
 // ResourceAdjustmentReconciler reconciles a ResourceAdjustment object
