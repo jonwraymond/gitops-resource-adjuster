@@ -7,8 +7,9 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+// Assuming ResourceAdjustment and other related types are defined elsewhere
 
-func ApplyVPARecommendationsToYAML(repoDir string, adjustment v1alpha1.ResourceAdjustment) error {
+func ApplyVPARecommendationsToYAML(repoDir string, adjustment ResourceAdjustment, resourceConfigurations map[string]ResourceSpecs) error {
 	for _, path := range adjustment.Spec.Paths {
 		fullPath := filepath.Join(repoDir, path)
 		data, err := ioutil.ReadFile(fullPath)
@@ -21,7 +22,14 @@ func ApplyVPARecommendationsToYAML(repoDir string, adjustment v1alpha1.ResourceA
 			return err
 		}
 
-		// Logic to update resourceConfig based on VPA recommendations goes here
+		// Example logic to update resourceConfig based on VPA recommendations
+		// This is a placeholder - you'll need to adjust paths and structure based on your actual YAML structure
+		for containerName, specs := range resourceConfigurations {
+			// Logic to navigate to the correct part of resourceConfig and apply updates
+			// This is highly dependent on the structure of your YAML and what you're adjusting
+			// For example, you might have a path like resourceConfig["spec"]["containers"]
+			// and then loop through containers to find a match by name and adjust resources
+		}
 
 		updatedData, err := yaml.Marshal(resourceConfig)
 		if err != nil {
