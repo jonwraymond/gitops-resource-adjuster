@@ -14,7 +14,7 @@ import (
     "k8s.io/client-go/rest"
     "gopkg.in/yaml.v2"
     "github.com/jonwraymond/gitops-resource-adjuster/internal/vpa"
-    "github.com/jonwraymond/gitops-resource-adjuster/config"
+    "github.com/jonwraymond/gitops-resource-adjuster/internal/config"
     "k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 )
 
